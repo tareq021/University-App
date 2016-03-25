@@ -84,6 +84,9 @@ namespace UniversityApp
             studentGridView.DataBind();
         }
 
-       
+        protected void deleteButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
