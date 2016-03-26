@@ -66,10 +66,8 @@ namespace UniversityApp
 
                 message = manager.Update(aStudent);
                 saveButton.Text = "Save";
-            }
-           
+            }           
             messageLabel.Text = message;
-
         }
 
         protected void showButton_Click(object sender, EventArgs e)

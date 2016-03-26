@@ -56,8 +56,8 @@ namespace UniversityApp.DAL
 
             SqlConnection connection = new SqlConnection(connectionString);
 
-            string query = "SELECT * FROM Students";
-
+            string query = "SELECT * FROM StudentView";
+            
             SqlCommand command = new SqlCommand(query,connection);
 
             connection.Open();
@@ -71,8 +71,10 @@ namespace UniversityApp.DAL
                 string name = reader["Name"].ToString();
                 string email = reader["Email"].ToString();
                 int department = Convert.ToInt32(reader["DepartmentId"].ToString());
+                string departmentName = reader["Department"].ToString();
 
                 Student student = new Student(id,name,regNo,email,department);
+                student.Department = departmentName;
                 students.Add(student);
             }
 

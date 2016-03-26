@@ -75,6 +75,12 @@
                                         <%#Eval("Email") %>
                                     </ItemTemplate>
                                 </asp:TemplateField>
+
+                                <asp:TemplateField HeaderText="Department">
+                                    <ItemTemplate>
+                                        <%#Eval("Department") %>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
                                 
                                 <asp:TemplateField HeaderText="">
                                     <ItemTemplate>
