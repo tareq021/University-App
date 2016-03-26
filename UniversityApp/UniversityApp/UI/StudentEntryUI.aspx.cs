@@ -34,10 +34,8 @@ namespace UniversityApp
                         departmentDropDown.SelectedValue = student.DepartmentId.ToString();
                         saveButton.Text = "Update";
                     }
-                }
+                }              
                 
-
-
                 List<Department> departments = departmentManager.GetAll();
 
                 departmentDropDown.DataSource = departments;
@@ -50,9 +48,7 @@ namespace UniversityApp
         }
          
         protected void saveButton_Click(object sender, EventArgs e)
-        {
-            
-
+        {          
             Student aStudent = new Student();
             aStudent.RegNo = regNoTextBox.Text;
             aStudent.Name = nameTextBox.Text;
@@ -86,7 +82,11 @@ namespace UniversityApp
 
         protected void deleteButton_Click(object sender, EventArgs e)
         {
-
+            Student aStudent = new Student();
+            int studentId = Convert.ToInt32(Request.QueryString["id"]);
+            aStudent.Id = studentId;
+            aStudent.RegNo = regNoTextBox.Text;
+            messageLabel.Text = manager.Delete(aStudent);
         }
     }
 }

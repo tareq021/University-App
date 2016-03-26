@@ -19,11 +19,9 @@ namespace UniversityApp.BLL
             if (isRegNoExists)
             {
                 message = "Reg No already exists!";
-
             }
             else
             {
-
                 int rowsAffected = gateway.Insert(student);
 
                 if (rowsAffected > 0)
@@ -58,6 +56,18 @@ namespace UniversityApp.BLL
             if (isUpdated)
             {
                 message = "Updated Successfully!";
+            }
+
+            return message;
+        }
+
+        internal string Delete(Student aStudent)
+        {
+            bool isDeleted = gateway.Delete(aStudent);
+            string message = "Delete Failed";
+            if (isDeleted)
+            {
+                message = "Record Deleted!";
             }
 
             return message;

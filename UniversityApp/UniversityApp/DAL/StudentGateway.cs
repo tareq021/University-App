@@ -34,8 +34,6 @@ namespace UniversityApp.DAL
 
         public int Insert(Student aStudent)
         {
-
-
             string query = "INSERT INTO Students VALUES('" + aStudent.RegNo + "', '" + aStudent.Name + "', '" + aStudent.Email + "', '" + aStudent.DepartmentId + "')";
 
             SqlConnection aConnection = new SqlConnection(connectionString);
@@ -80,6 +78,30 @@ namespace UniversityApp.DAL
 
             connection.Close();
             return students;
+        }
+
+        internal bool Delete(Student aStudent)
+        {
+            int rowsEffected = 0;
+            string deleteStudentQuery = "";
+
+            if (IsRegNoExists(aStudent.RegNo) == false)
+            {
+                return false;
+            }
+            else if (IsRegNoExists(aStudent.RegNo) == true)
+            {
+                deleteStudentQuery = "DELETE FROM Students WHERE Id = '" + aStudent.Id + "'";
+            }
+
+            SqlConnection dBConnection = new SqlConnection(connectionString);
+
+            dBConnection.Open();
+            SqlCommand command = new SqlCommand(deleteStudentQuery, dBConnection);
+            rowsEffected = command.ExecuteNonQuery();
+            dBConnection.Close();
+
+            return rowsEffected > 0;
         }
 
         public Student GetStudentById(int studentId)

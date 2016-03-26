@@ -22,3 +22,9 @@ C:\Users\BITM Trainer\Desktop\SEIP Project (.NET)\Batch 14\23.03.2016\University
 C:\Users\BITM Trainer\Desktop\SEIP Project (.NET)\Batch 14\23.03.2016\UniversityApp\UniversityApp\obj\Debug\UniversityApp.dll
 C:\Users\BITM Trainer\Desktop\SEIP Project (.NET)\Batch 14\23.03.2016\UniversityApp\UniversityApp\obj\Debug\UniversityApp.pdb
 C:\Users\BITM Trainer\Desktop\SEIP Project (.NET)\Batch 14\23.03.2016\UniversityApp\UniversityApp\obj\Debug\UniversityApp.csprojResolveAssemblyReference.cache
+F:\GitHub\University-App\UniversityApp\UniversityApp\bin\UniversityApp.dll.config
+F:\GitHub\University-App\UniversityApp\UniversityApp\bin\UniversityApp.dll
+F:\GitHub\University-App\UniversityApp\UniversityApp\bin\UniversityApp.pdb
+F:\GitHub\University-App\UniversityApp\UniversityApp\obj\Debug\UniversityApp.csprojResolveAssemblyReference.cache
+F:\GitHub\University-App\UniversityApp\UniversityApp\obj\Debug\UniversityApp.dll
+F:\GitHub\University-App\UniversityApp\UniversityApp\obj\Debug\UniversityApp.pdb
