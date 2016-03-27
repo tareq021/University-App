@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using UniversityApp.Model;
 
 namespace UniversityApp.DAL
 {
@@ -56,9 +57,201 @@ namespace UniversityApp.DAL
 
             SqlConnection connection = new SqlConnection(connectionString);
 
-            string query = "SELECT * FROM StudentView";
-            
+            string query = "SELECT * FROM Students";
+
             SqlCommand command = new SqlCommand(query,connection);
+
+            connection.Open();
+
+            SqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                int id = Convert.ToInt32(reader["Id"]);
+                string regNo = reader["RegNo"].ToString();
+                string name = reader["Name"].ToString();
+                string email = reader["Email"].ToString();
+                int department = Convert.ToInt32(reader["DepartmentId"].ToString());
+
+                Student student = new Student(id,name,regNo,email,department);
+                students.Add(student);
+            }
+
+            connection.Close();
+            return students;
+        }
+
+        internal List<StudentView> ShowAllDepartments()
+        {
+            List<StudentView> students = new List<StudentView>();
+
+            SqlConnection connection = new SqlConnection(connectionString);
+
+            string query = "SELECT * FROM AllDepartments";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            connection.Open();
+
+            SqlDataReader reader = command.ExecuteReader();
+
+            int id;
+            string regNo;
+            string name;
+            string email;
+            int department;
+            string departmentName;
+            while (reader.Read())
+            {
+                if (!DBNull.Value.Equals(reader["Id"]))
+                {
+                    id = Convert.ToInt32(reader["Id"]);
+                }
+                else
+                {
+                    id = 0; 
+                }
+                if (!DBNull.Value.Equals(reader["RegNo"]))
+                {
+                    regNo = reader["RegNo"].ToString();
+                }
+                else
+                {
+                    regNo = "";
+                }
+                if (!DBNull.Value.Equals(reader["Name"]))
+                {
+                    name = reader["Name"].ToString();
+                }
+                else
+                {
+                    name = "";
+                }
+                if (!DBNull.Value.Equals(reader["Email"]))
+                {
+                    email = reader["Email"].ToString();
+                }
+                else
+                {
+                    email = "";
+                }
+                if (!DBNull.Value.Equals(reader["DepartmentId"]))
+                {
+                    department = Convert.ToInt32(reader["DepartmentId"].ToString());
+                }
+                else
+                {
+                    department = 0;
+                }
+                if (!DBNull.Value.Equals(reader["Department"]))
+                {
+                    departmentName = reader["Department"].ToString();
+                }
+                else
+                {
+                    departmentName = "";
+                }
+
+
+                StudentView student = new StudentView(id, name, regNo, email, department, departmentName);
+
+                students.Add(student);
+            }
+
+            connection.Close();
+            return students;
+        }
+
+        internal List<StudentView> ShowAllStudents()
+        {
+            List<StudentView> students = new List<StudentView>();
+
+            SqlConnection connection = new SqlConnection(connectionString);
+
+            string query = "SELECT * FROM AllStudents";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            connection.Open();
+
+            SqlDataReader reader = command.ExecuteReader();
+
+            int id;
+            string regNo;
+            string name;
+            string email;
+            int department;
+            string departmentName;
+            while (reader.Read())
+            {
+                if (!DBNull.Value.Equals(reader["Id"]))
+                {
+                    id = Convert.ToInt32(reader["Id"]);
+                }
+                else
+                {
+                    id = 0;
+                }
+                if (!DBNull.Value.Equals(reader["RegNo"]))
+                {
+                    regNo = reader["RegNo"].ToString();
+                }
+                else
+                {
+                    regNo = "";
+                }
+                if (!DBNull.Value.Equals(reader["Name"]))
+                {
+                    name = reader["Name"].ToString();
+                }
+                else
+                {
+                    name = "";
+                }
+                if (!DBNull.Value.Equals(reader["Email"]))
+                {
+                    email = reader["Email"].ToString();
+                }
+                else
+                {
+                    email = "";
+                }
+                if (!DBNull.Value.Equals(reader["DepartmentId"]))
+                {
+                    department = Convert.ToInt32(reader["DepartmentId"].ToString());
+                }
+                else
+                {
+                    department = 0;
+                }
+                if (!DBNull.Value.Equals(reader["Department"]))
+                {
+                    departmentName = reader["Department"].ToString();
+                }
+                else
+                {
+                    departmentName = "";
+                }
+
+
+                StudentView student = new StudentView(id, name, regNo, email, department, departmentName);
+
+                students.Add(student);
+            }
+
+            connection.Close();
+            return students;
+        }
+
+        public List<StudentView> GetAllStudentsWithDepartment()
+        {
+            List<StudentView> students = new List<StudentView>();
+
+            SqlConnection connection = new SqlConnection(connectionString);
+
+            string query = "SELECT * FROM StudentView";
+
+            SqlCommand command = new SqlCommand(query, connection);
 
             connection.Open();
 
@@ -73,8 +266,8 @@ namespace UniversityApp.DAL
                 int department = Convert.ToInt32(reader["DepartmentId"].ToString());
                 string departmentName = reader["Department"].ToString();
 
-                Student student = new Student(id,name,regNo,email,department);
-                student.Department = departmentName;
+                StudentView student = new StudentView(id, name, regNo, email, department, departmentName);
+                                
                 students.Add(student);
             }
 

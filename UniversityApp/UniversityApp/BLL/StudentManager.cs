@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using UniversityApp.DAL;
+using UniversityApp.Model;
 
 namespace UniversityApp.BLL
 {
@@ -43,6 +44,12 @@ namespace UniversityApp.BLL
             return students;
         }
 
+        public List<StudentView> GetAllStudentsWithDepartment()
+        {
+            List<StudentView> students = gateway.GetAllStudentsWithDepartment();
+            return students;
+        }
+
         public Student GetStudentById(int studentId)
         {
             Student student = gateway.GetStudentById(studentId);
@@ -71,6 +78,18 @@ namespace UniversityApp.BLL
             }
 
             return message;
+        }
+
+        internal List<StudentView> ShowAllStudents()
+        {
+            List<StudentView> allStudents = gateway.ShowAllStudents();
+            return allStudents;
+        }
+
+        internal List<StudentView> ShowAllDepartments()
+        {
+            List<StudentView> allStudents = gateway.ShowAllDepartments();
+            return allStudents;
         }
     }
 }

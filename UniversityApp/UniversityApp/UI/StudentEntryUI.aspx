@@ -46,8 +46,6 @@
                         <asp:Button ID="saveButton" runat="server" Text="Save" OnClick="saveButton_Click" />
                         <asp:Button ID="showButton" runat="server" Text="Show" OnClick="showButton_Click" />
                         <asp:Button ID="deleteButton" runat="server" Text="Delete" OnClick="deleteButton_Click"/>
-
-
                     </td>
                 </tr>
                 <tr>
@@ -78,7 +76,7 @@
 
                                 <asp:TemplateField HeaderText="Department">
                                     <ItemTemplate>
-                                        <%#Eval("Department") %>
+                                        <%#Eval("DepartmentName") %>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 
@@ -92,6 +90,58 @@
                     </td>
                 </tr>
             </table>
+            
+            <table>
+                <tr>
+                    <td>
+                        <asp:Button ID="showAllStudentButton" runat="server" Text="Show All Students" OnClick="showAllStudentButton_Click" />
+                    </td>
+                    <td>
+                        <asp:Button ID="showAllDepartmentButton" runat="server" Text="Show All Departments" OnClick="showAllDepartmentButton_Click" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan ="2">
+                        <asp:GridView ID="CommonGridView" runat="server" AutoGenerateColumns ="False">
+                            <Columns>
+                                
+                                <asp:TemplateField HeaderText="Name">
+                                    <ItemTemplate>
+                                        <%#Eval("Name") %>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+
+                                 <asp:TemplateField HeaderText="Reg No">
+                                    <ItemTemplate>
+                                        <%#Eval("RegNo") %>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                
+                                <asp:TemplateField HeaderText="Email">
+                                    <ItemTemplate>
+                                        <%#Eval("Email") %>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+
+                                <asp:TemplateField HeaderText="Department">
+                                    <ItemTemplate>
+                                        <%#Eval("DepartmentName") %>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                
+                                <asp:TemplateField HeaderText="">
+                                    <ItemTemplate>
+                                        <asp:HyperLink runat="server" NavigateUrl='<%# String.Concat("~/UI/StudentEntryUI.aspx?id=", Eval("Id") ) %>' Text="Edit"></asp:HyperLink>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                          
+                            </Columns>
+                        </asp:GridView>
+                    </td>
+                </tr>
+            </table>
+
         </div>
     </form>
 </body>

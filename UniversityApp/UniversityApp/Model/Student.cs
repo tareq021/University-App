@@ -26,6 +26,5 @@ namespace UniversityApp
         public string RegNo { get; set; }
         public string Email { get; set; }
         public int DepartmentId { get; set; }
-        public string Department { get; set; }
     }
 }

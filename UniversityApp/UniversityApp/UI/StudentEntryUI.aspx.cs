@@ -66,13 +66,15 @@ namespace UniversityApp
 
                 message = manager.Update(aStudent);
                 saveButton.Text = "Save";
-            }           
+            }
+           
             messageLabel.Text = message;
+
         }
 
         protected void showButton_Click(object sender, EventArgs e)
         {
-            List<Student> studentList = manager.GetAllStudents();
+            List<StudentView> studentList = manager.GetAllStudentsWithDepartment();
 
             studentGridView.DataSource = studentList;
             studentGridView.DataBind();
@@ -85,6 +87,22 @@ namespace UniversityApp
             aStudent.Id = studentId;
             aStudent.RegNo = regNoTextBox.Text;
             messageLabel.Text = manager.Delete(aStudent);
+        }
+
+        protected void showAllStudentButton_Click(object sender, EventArgs e)
+        {
+            List<StudentView> studentList = manager.ShowAllStudents();
+                         
+            CommonGridView.DataSource = studentList;
+            CommonGridView.DataBind();
+        }
+
+        protected void showAllDepartmentButton_Click(object sender, EventArgs e)
+        {
+            List<StudentView> studentList = manager.ShowAllDepartments();
+
+            CommonGridView.DataSource = studentList;
+            CommonGridView.DataBind();
         }
     }
 }
