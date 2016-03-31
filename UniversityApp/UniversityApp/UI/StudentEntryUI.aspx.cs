@@ -44,7 +44,6 @@ namespace UniversityApp
                 departmentDropDown.DataBind();
             }
             
-
         }
          
         protected void saveButton_Click(object sender, EventArgs e)
@@ -69,7 +68,6 @@ namespace UniversityApp
             }
            
             messageLabel.Text = message;
-
         }
 
         protected void showButton_Click(object sender, EventArgs e)

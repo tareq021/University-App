@@ -151,8 +151,7 @@ namespace UniversityApp.DAL
                 {
                     departmentName = "";
                 }
-
-
+                
                 StudentView student = new StudentView(id, name, regNo, email, department, departmentName);
 
                 students.Add(student);
@@ -232,8 +231,7 @@ namespace UniversityApp.DAL
                 {
                     departmentName = "";
                 }
-
-
+                
                 StudentView student = new StudentView(id, name, regNo, email, department, departmentName);
 
                 students.Add(student);
